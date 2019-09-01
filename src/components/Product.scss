@@ -1,0 +1,218 @@
+@import "../index.scss";
+
+.product {
+  margin: 10px 40px;
+
+  @include transition();
+
+  &__border {
+    width: 320px;
+    height: 480px;
+    display: block;
+    position: relative;
+    background-color: $colorDefault;
+    background: linear-gradient(135deg, transparent 30px, $colorDefault 0);
+    border-radius: $borderOuter;
+
+    @include transition();
+  }
+  &__inner {
+    position: absolute;
+    box-sizing: border-box;
+    top: 4px;
+    left: 4px;
+    width: 312px;
+    height: 472px;
+    border-radius: $borderInner;
+    padding-left: 43px;
+    padding-top: 17px;
+    text-align: left;
+    background: $colorWhite;
+    background: linear-gradient(135deg, transparent 28.3px, $colorWhite 0);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: $borderInner;
+      background: url("../assets/img/cat.png") no-repeat -30px 203px transparent;
+      z-index: 1;
+    }
+    > * {
+      z-index: 10;
+    }
+  }
+
+  &__top-promo {
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 5px;
+    padding-left: 2px;
+  }
+
+  &__classification {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: $colorBlack;
+    margin-bottom: 15px;
+    padding-left: 2px;
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 16px;
+    padding-left: 2px;
+  }
+
+  &__weight {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: $colorDefault;
+    color: $colorWhite;
+    font-size: 42px;
+    line-height: 1;
+    position: absolute;
+    bottom: 11px;
+    right: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include transition();
+  }
+
+  &__weight-units {
+    font-size: 21px;
+    line-height: 22px;
+  }
+
+  &__bottom-promo {
+    font-size: 13px;
+    text-align: center;
+    color: $colorWhite;
+    font-size: 13px;
+    line-height: 15px;
+    margin-top: 15px;
+
+    a {
+      text-decoration: none;
+      color: $colorDefault;
+      border-bottom: 1px dashed $colorDefault;
+      font-weight: bold;
+
+      @include transition();
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .product__border {
+      background-color: $colorHover;
+      background: linear-gradient(135deg, transparent 30px, $colorHover 0);
+    }
+    .product__weight {
+      background-color: $colorHover;
+    }
+    .product__bottom-promo a {
+      color: $colorHover;
+      border-color: $colorHover;
+    }
+  }
+  &--first-hover {
+    &:hover {
+      cursor: pointer;
+
+      .product__border {
+        background-color: $colorDefault;
+        background: linear-gradient(135deg, transparent 30px, $colorDefault 0);
+      }
+      .product__weight {
+        background-color: $colorDefault;
+      }
+    }
+  }
+  &--selected {
+    .product__border {
+      background-color: $colorSelected;
+      background: linear-gradient(135deg, transparent 30px, $colorSelected 0);
+    }
+    .product__weight {
+      background-color: $colorSelected;
+    }
+    &:hover {
+      .product__border {
+        background-color: $colorSelectedHover;
+        background: linear-gradient(
+          135deg,
+          transparent 30px,
+          $colorSelectedHover 0
+        );
+      }
+      .product__weight {
+        background-color: $colorSelectedHover;
+      }
+    }
+
+    &.product--first-hover {
+      &:hover {
+        .product__border {
+          background-color: $colorSelected;
+          background: linear-gradient(
+            135deg,
+            transparent 30px,
+            $colorSelected 0
+          );
+        }
+        .product__weight {
+          background-color: $colorSelected;
+        }
+      }
+    }
+  }
+  &--disabled {
+    .product__border {
+      background-color: $colorDisabled;
+      background: linear-gradient(135deg, transparent 30px, $colorDisabled 0);
+    }
+    .product__weight {
+      background-color: $colorDisabled;
+    }
+    .product__bottom-promo {
+      color: $colorDisabledPromo;
+    }
+    &:hover {
+      cursor: default;
+
+      .product__border {
+        background-color: $colorDisabled;
+        background: linear-gradient(135deg, transparent 30px, $colorDisabled 0);
+      }
+      .product__weight {
+        background-color: $colorDisabled;
+      }
+    }
+    .product__inner {
+      &::after {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+_:-ms-fullscreen,
+:root {
+  .product-list {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+  .product {
+    display: inline-block;
+  }
+}
