@@ -15,7 +15,18 @@
     border-radius: $borderOuter;
 
     @include transition();
+
+    &:hover {
+      cursor: pointer;
+      background-color: $colorHover;
+      background: linear-gradient(135deg, transparent 30px, $colorHover 0);
+
+      .product__weight {
+        background-color: $colorHover;
+      }
+    }
   }
+
   &__inner {
     position: absolute;
     box-sizing: border-box;
@@ -41,7 +52,8 @@
       background: url("../assets/img/cat.png") no-repeat -30px 203px transparent;
       z-index: 1;
     }
-    > * {
+
+    >* {
       z-index: 10;
     }
   }
@@ -107,97 +119,91 @@
       font-weight: bold;
 
       @include transition();
+
+      &:hover {
+        color: $colorHover;
+        border-color: $colorHover;
+      }
     }
   }
 
-  &:hover {
-    cursor: pointer;
 
+  &--hover-disabled {
     .product__border {
-      background-color: $colorHover;
-      background: linear-gradient(135deg, transparent 30px, $colorHover 0);
-    }
-    .product__weight {
-      background-color: $colorHover;
-    }
-    .product__bottom-promo a {
-      color: $colorHover;
-      border-color: $colorHover;
-    }
-  }
-  &--first-hover {
-    &:hover {
-      cursor: pointer;
-
-      .product__border {
+      &:hover {
+        cursor: pointer;
         background-color: $colorDefault;
         background: linear-gradient(135deg, transparent 30px, $colorDefault 0);
-      }
-      .product__weight {
-        background-color: $colorDefault;
+
+        .product__weight {
+          background-color: $colorDefault;
+        }
       }
     }
   }
+
   &--selected {
     .product__border {
       background-color: $colorSelected;
       background: linear-gradient(135deg, transparent 30px, $colorSelected 0);
-    }
-    .product__weight {
-      background-color: $colorSelected;
-    }
-    &:hover {
-      .product__border {
+
+      &:hover {
         background-color: $colorSelectedHover;
-        background: linear-gradient(
-          135deg,
-          transparent 30px,
-          $colorSelectedHover 0
-        );
-      }
-      .product__weight {
-        background-color: $colorSelectedHover;
+        background: linear-gradient(135deg,
+            transparent 30px,
+            $colorSelectedHover 0);
+
+        .product__weight {
+          background-color: $colorSelectedHover;
+        }
       }
     }
 
-    &.product--first-hover {
+    .product__weight {
+      background-color: $colorSelected;
+    }
+  }
+
+  &.product--hover-disabled {
+    .product__border {
       &:hover {
-        .product__border {
-          background-color: $colorSelected;
-          background: linear-gradient(
-            135deg,
+        background-color: $colorSelected;
+        background: linear-gradient(135deg,
             transparent 30px,
-            $colorSelected 0
-          );
-        }
+            $colorSelected 0);
+
         .product__weight {
           background-color: $colorSelected;
         }
       }
     }
   }
+
+
   &--disabled {
     .product__border {
       background-color: $colorDisabled;
       background: linear-gradient(135deg, transparent 30px, $colorDisabled 0);
+
+      &:hover {
+        cursor: default;
+        background-color: $colorDisabled;
+        background: linear-gradient(135deg, transparent 30px, $colorDisabled 0);
+
+        .product__weight {
+          background-color: $colorDisabled;
+        }
+      }
     }
+
     .product__weight {
       background-color: $colorDisabled;
     }
+
     .product__bottom-promo {
       color: $colorDisabledPromo;
     }
-    &:hover {
-      cursor: default;
 
-      .product__border {
-        background-color: $colorDisabled;
-        background: linear-gradient(135deg, transparent 30px, $colorDisabled 0);
-      }
-      .product__weight {
-        background-color: $colorDisabled;
-      }
-    }
     .product__inner {
       &::after {
         opacity: 0.5;
@@ -205,6 +211,7 @@
     }
   }
 }
+
 _:-ms-fullscreen,
 :root {
   .product-list {
@@ -212,6 +219,7 @@ _:-ms-fullscreen,
     text-align: center;
     width: 100%;
   }
+
   .product {
     display: inline-block;
   }

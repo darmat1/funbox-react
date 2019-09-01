@@ -16,8 +16,6 @@ class ProductList extends Component {
           topPromo={c.topPromo}
           description={c.description}
           bottomPromo={c.bottomPromo}
-          bottomPromoSelected={c.bottomPromoSelected}
-          bottomPromoDisabled={c.bottomPromoDisabled}
           weight={c.weight}
           units={c.units}
           isAvailable={c.isAvailable}

@@ -7,28 +7,16 @@ class Product extends Component {
     this.state = {
       isSelected: false,
       isFirstHover: false,
-      bottomPromo: undefined
-    }
-  }
-
-  componentDidMount() {
-    if (this.props.isAvailable) {
-      this.setState({ bottomPromo: this.props.bottomPromo });
-    }
-    else {
-      this.setState({ bottomPromo: this.props.bottomPromoDisabled });
     }
   }
 
   clickOnProduct = () => {
     if (this.props.isAvailable) {
       if (!this.state.isSelected) {
-        this.setState({ isSelected: !this.state.isSelected });
-        this.setState({ isFirstHover: !this.state.isFirstHover });
-        this.setState({ bottomPromo: this.props.bottomPromoSelected });
+        this.setState({ isSelected: true });
+        this.setState({ isFirstHover: true });
       } else {
         this.setState({ isSelected: !this.state.isSelected });
-        this.setState({ bottomPromo: this.props.bottomPromo });
       }
 
       if (this.state.isFirstHover && this.state.isSelected) {
@@ -37,23 +25,40 @@ class Product extends Component {
     }
   }
 
+  clickOnLink = () => {
+    if (this.props.isAvailable && !this.state.isSelected) {
+        this.setState({ isSelected: true });
+    }
+  }
+
   mouseLeave = () => {
     if (this.state.isSelected) {
-      this.setState({ isFirstHover: !this.state.isFirstHover });
+      this.setState({ isFirstHover: false });
     }
   }
 
   render() {
+    let productBottomBlock;
+    if (this.props.isAvailable) {
+      if (!this.state.isSelected) {
+        productBottomBlock = <div className="product__bottom-promo">
+        {this.props.bottomPromo.text} <a href={this.props.bottomPromo.link} onClick={this.clickOnLink}>{this.props.bottomPromo.linkAnchor}</a>
+        </div>;
+      } else {
+        productBottomBlock = <div className="product__bottom-promo">{this.props.bottomPromo.textSelected}</div>
+      }
+    } else {
+      productBottomBlock = <div className="product__bottom-promo">{this.props.bottomPromo.textDisabled}</div>;
+    }
+
     return (
       <div
-        onClick={this.clickOnProduct}
         className={`product` +
           `${!this.props.isAvailable ? ' product--disabled' : ''}` +
           `${this.state.isSelected === true ? ' product--selected' : ''}` +
-          `${this.state.isFirstHover ? ' product--first-hover' : ''}`
-        }
-        onMouseLeave={this.mouseLeave}>
-        <div className="product__border">
+          `${this.state.isFirstHover ? ' product--hover-disabled' : ''}`
+        }>
+        <div className="product__border" onClick={this.clickOnProduct} onMouseLeave={this.mouseLeave}>
           <div className="product__inner">
             <div className="product__top-promo">{this.props.topPromo}</div>
             <h2 className="product__name">{this.props.name}</h2>
@@ -65,7 +70,7 @@ class Product extends Component {
             </div>
           </div>
         </div>
-        <div className="product__bottom-promo" dangerouslySetInnerHTML={{ __html: this.state.bottomPromo }}></div>
+        {productBottomBlock}
       </div>
     );
   }

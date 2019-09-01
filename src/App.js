@@ -9,9 +9,13 @@ const products = [
     "classification": "c фуа-гра",
     "topPromo": "Сказочное заморское яство",
     "description": "<strong>10</strong> порций <br> мышь в подарок",
-    "bottomPromo": "Чего сидишь? порадуй котэ, <a href='#'>купи</a>",
-    "bottomPromoSelected": "Печень утки разварная с артишоками.",
-    "bottomPromoDisabled": "Печалька, с фуа-гра закончился.",
+    "bottomPromo": {
+      "link": "#",
+      "linkAnchor": "купи",
+      "text": "Чего сидишь? порадуй котэ,",
+      "textSelected": "Печень утки разварная с артишоками.",
+      "textDisabled": "Печалька, с фуа-гра закончился."
+    },
     "weight": "0,5",
     "units": "кг",
     "isAvailable": true
@@ -23,9 +27,13 @@ const products = [
     "description":
       "<strong>40</strong> порций <br><strong>2</strong> мыши в подарок",
     "topPromo": "Сказочное заморское яство",
-    "bottomPromo": "Чего сидишь? порадуй котэ, <a href='#'>купи</a>",
-    "bottomPromoSelected": "Головы щучьи с чесноком да свежайшая сёмгушка.",
-    "bottomPromoDisabled": "Печалька, с рыбой закончился.",
+    "bottomPromo": {
+      "link": "#",
+      "linkAnchor": "купи",
+      "text": "Чего сидишь? порадуй котэ, ",
+      "textSelected": "Головы щучьи с чесноком да свежайшая сёмгушка.",
+      "textDisabled": "Печалька, с рыбой закончился.",
+    },
     "weight": "2",
     "units": "кг",
     "isAvailable": true
@@ -37,9 +45,13 @@ const products = [
     "description":
       "<strong>100</strong> порций <br><strong>5</strong> мышей в подарок <br>заказчик доволен",
     "topPromo": "Сказочное заморское яство",
-    "bottomPromo": "Чего сидишь? порадуй котэ, <a href='#'>купи</a>",
-    "bottomPromoSelected": "Филе из цыплят с трюфелями в бульоне.",
-    "bottomPromoDisabled": "Печалька, с курой закончился.",
+    "bottomPromo": {
+      "link": "#",
+      "linkAnchor": "купи",
+      "text": "Чего сидишь? порадуй котэ, ",
+      "textSelected": "Филе из цыплят с трюфелями в бульоне.",
+      "textDisabled": "Печалька, с курой закончился."
+    },
     "weight": "5",
     "units": "кг",
     "isAvailable": false
