@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/funbox-react/static/css/main.fb8d5373.chunk.css",
-    "main.js": "/funbox-react/static/js/main.d6a1c369.chunk.js",
-    "main.js.map": "/funbox-react/static/js/main.d6a1c369.chunk.js.map",
+    "main.css": "/funbox-react/static/css/main.43b43eda.chunk.css",
+    "main.js": "/funbox-react/static/js/main.b0e65e4c.chunk.js",
+    "main.js.map": "/funbox-react/static/js/main.b0e65e4c.chunk.js.map",
     "runtime~main.js": "/funbox-react/static/js/runtime~main.f868ec82.js",
     "runtime~main.js.map": "/funbox-react/static/js/runtime~main.f868ec82.js.map",
     "static/js/2.b92c9c3e.chunk.js": "/funbox-react/static/js/2.b92c9c3e.chunk.js",
     "static/js/2.b92c9c3e.chunk.js.map": "/funbox-react/static/js/2.b92c9c3e.chunk.js.map",
     "index.html": "/funbox-react/index.html",
-    "precache-manifest.afd8367c83bcc766a680d0efb43579bc.js": "/funbox-react/precache-manifest.afd8367c83bcc766a680d0efb43579bc.js",
+    "precache-manifest.5a8f1deb13ed419b6fd42b85bdfcb72c.js": "/funbox-react/precache-manifest.5a8f1deb13ed419b6fd42b85bdfcb72c.js",
     "service-worker.js": "/funbox-react/service-worker.js",
-    "static/css/main.fb8d5373.chunk.css.map": "/funbox-react/static/css/main.fb8d5373.chunk.css.map",
+    "static/css/main.43b43eda.chunk.css.map": "/funbox-react/static/css/main.43b43eda.chunk.css.map",
     "static/media/Product.scss": "/funbox-react/static/media/cat.1a60b991.png"
   }
 }
