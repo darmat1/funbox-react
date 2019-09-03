@@ -26,7 +26,7 @@
 
 _:-ms-fullscreen,
 :root {
-  .app {
+  #app {
     height: 100vh;
     background-attachment: fixed;
   }
@@ -34,7 +34,7 @@ _:-ms-fullscreen,
 @media (max-width: 1300px) {
   _:-ms-fullscreen,
   :root {
-    .app {
+    #app {
       display: block;
       height: auto;
     }
