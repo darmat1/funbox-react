@@ -7,14 +7,18 @@ class App extends Component {
     super();
     this.state = {
       products: [],
+      dataUrl: "./data/data.json"
     };
+
+  }
+  fetchData = (url) => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => this.setState({ products: data })
+      )
   }
   componentDidMount() {
-      fetch("./data/data.json")
-      .then((response) => response.json())
-      .then((response) => {
-              this.setState({products: response});
-      })
+    this.fetchData(this.state.dataUrl);
   }
   render() {
     return (

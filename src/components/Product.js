@@ -7,13 +7,16 @@ class Product extends Component {
       isSelected: false,
       isFirstHover: false,
     }
+    this.clickOnProduct = this.clickOnProduct.bind(this);
   }
 
   clickOnProduct = () => {
     if (this.props.isAvailable) {
       if (!this.state.isSelected) {
-        this.setState({ isSelected: true });
-        this.setState({ isFirstHover: true });
+        this.setState({ 
+          isSelected: true,
+          isFirstHover: true
+         });
       } else {
         this.setState({ isSelected: !this.state.isSelected });
       }
