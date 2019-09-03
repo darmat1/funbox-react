@@ -44,7 +44,7 @@ class Product extends Component {
     if (this.props.isAvailable) {
       if (!this.state.isSelected) {
         productBottomBlock = <div className="product__bottom-promo">
-        {this.props.bottomPromo.text} <a href={this.props.bottomPromo.link} onClick={this.clickOnLink}>{this.props.bottomPromo.linkAnchor}</a>
+        {this.props.bottomPromo.text} <a onClick={this.clickOnLink}>{this.props.bottomPromo.linkAnchor}</a>
         </div>;
       } else {
         productBottomBlock = <div className="product__bottom-promo">{this.props.bottomPromo.textSelected}</div>

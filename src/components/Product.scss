@@ -121,6 +121,7 @@
       @include transition();
 
       &:hover {
+        cursor: pointer;
         color: $colorHover;
         border-color: $colorHover;
       }
@@ -222,5 +223,16 @@ _:-ms-fullscreen,
 
   .product {
     display: inline-block;
+  }
+}
+
+// @media (max-width: 1200px) {
+//   .product {
+//     margin: 10px 20px;
+//   }
+// }
+@media (max-width: 576px) {
+  .product {
+    margin: 10px 0;
   }
 }
