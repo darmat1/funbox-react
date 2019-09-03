@@ -5,7 +5,7 @@
 
   @include transition();
 
-  &__border {
+  &__card {
     width: 320px;
     height: 480px;
     display: block;
@@ -129,7 +129,7 @@
 
 
   &--hover-disabled {
-    .product__border {
+    .product__card {
       &:hover {
         cursor: pointer;
         background-color: $colorDefault;
@@ -143,7 +143,7 @@
   }
 
   &--selected {
-    .product__border {
+    .product__card {
       background-color: $colorSelected;
       background: linear-gradient(135deg, transparent 30px, $colorSelected 0);
 
@@ -165,7 +165,7 @@
   }
 
   &.product--hover-disabled {
-    .product__border {
+    .product__card {
       &:hover {
         background-color: $colorSelected;
         background: linear-gradient(135deg,
@@ -181,7 +181,7 @@
 
 
   &--disabled {
-    .product__border {
+    .product__card {
       background-color: $colorDisabled;
       background: linear-gradient(135deg, transparent 30px, $colorDisabled 0);
 

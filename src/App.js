@@ -19,15 +19,16 @@ class App extends Component {
   }
   componentDidMount() {
     this.fetchData(this.state.dataUrl);
+    setInterval(() => {
+      this.fetchData(this.state.dataUrl);
+    }, 5000);
   }
   render() {
     return (
-      <div className="app">
         <div className="wrapper">
           <h1>Ты сегодня покормил кота?</h1>
           <ProductList products={this.state.products} />
         </div>
-      </div>
     );
   }
 }
