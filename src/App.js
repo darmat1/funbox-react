@@ -21,7 +21,7 @@ class App extends Component {
     this.fetchData(this.state.dataUrl);
     setInterval(() => {
       this.fetchData(this.state.dataUrl);
-    }, 5000);
+    }, 1000);
   }
   render() {
     return (
