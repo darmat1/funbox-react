@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4245925800c04b97e9990e4d5a69b96e",
+    "revision": "ba8ba357d8ba11d7138cfd2bdc3b8896",
     "url": "/funbox-react/index.html"
   },
   {
-    "revision": "b9cc735509288df6e4ba",
-    "url": "/funbox-react/static/css/main.4a771542.chunk.css"
+    "revision": "4d6abdba8f934ae21d52",
+    "url": "/funbox-react/static/css/main.84886a0e.chunk.css"
   },
   {
-    "revision": "7544a334911b446ebb19",
-    "url": "/funbox-react/static/js/2.b92c9c3e.chunk.js"
+    "revision": "8f0c0f1e92bdb2232b3b",
+    "url": "/funbox-react/static/js/2.726fc7b6.chunk.js"
   },
   {
-    "revision": "b9cc735509288df6e4ba",
-    "url": "/funbox-react/static/js/main.b0e65e4c.chunk.js"
+    "revision": "4d6abdba8f934ae21d52",
+    "url": "/funbox-react/static/js/main.0143d865.chunk.js"
   },
   {
     "revision": "6f4d381cac6605f30b39",
