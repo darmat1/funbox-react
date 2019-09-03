@@ -3,9 +3,6 @@ import './ProductList.scss';
 import Product from "./Product";
 
 class ProductList extends Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       <div className="product-list">
