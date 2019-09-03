@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import './Product.scss';
-
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -8,13 +7,16 @@ class Product extends Component {
       isSelected: false,
       isFirstHover: false,
     }
+    this.clickOnProduct = this.clickOnProduct.bind(this);
   }
 
   clickOnProduct = () => {
     if (this.props.isAvailable) {
       if (!this.state.isSelected) {
-        this.setState({ isSelected: true });
-        this.setState({ isFirstHover: true });
+        this.setState({ 
+          isSelected: true,
+          isFirstHover: true
+         });
       } else {
         this.setState({ isSelected: !this.state.isSelected });
       }
@@ -58,7 +60,7 @@ class Product extends Component {
           `${this.state.isSelected === true ? ' product--selected' : ''}` +
           `${this.state.isFirstHover ? ' product--hover-disabled' : ''}`
         }>
-        <div className="product__border" onClick={this.clickOnProduct} onMouseLeave={this.mouseLeave}>
+        <div className="product__card" onClick={this.clickOnProduct} onMouseLeave={this.mouseLeave}>
           <div className="product__inner">
             <div className="product__top-promo">{this.props.topPromo}</div>
             <h2 className="product__name">{this.props.name}</h2>
