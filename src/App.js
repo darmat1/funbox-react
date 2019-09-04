@@ -7,8 +7,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      error: null,
+      isLoaded: false,
       products: [],
-      dataUrl: "./data/data.json"
+      // dataUrl: "https://preview.khaztech.com/zzz/datatest.php",
+      dataUrl: "./data/data.json",
+      em: null
     };
 
   }
@@ -16,16 +20,32 @@ class App extends Component {
     require('es6-promise').polyfill();
     require('isomorphic-fetch');
     
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => this.setState({ products: data })
+    fetch(url, {
+      mode: 'cors',
+      headers: {
+      }
+    })
+      .then(response => response.json())
+      .then(
+        (data) => {
+          this.setState({ 
+            products: data
+          })
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+            em: error.message
+          });
+        }
       )
   }
   componentDidMount() {
     this.fetchData(this.state.dataUrl);
     setInterval(() => {
       this.fetchData(this.state.dataUrl);
-    }, 1000);
+    }, 2000);
   }
   render() {
     return (

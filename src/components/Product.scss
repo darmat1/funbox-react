@@ -111,22 +111,23 @@
     font-size: 13px;
     line-height: 15px;
     margin-top: 15px;
+  }
 
-    a {
-      text-decoration: none;
-      color: $colorDefault;
-      border-bottom: 1px dashed $colorDefault;
-      font-weight: bold;
+  &__bottom-link {
+    text-decoration: none;
+    color: $colorDefault;
+    border-bottom: 1px dashed $colorDefault;
+    font-weight: bold;
 
-      @include transition();
+    @include transition();
 
-      &:hover {
-        cursor: pointer;
-        color: $colorHover;
-        border-color: $colorHover;
-      }
+    &:hover {
+      cursor: pointer;
+      color: $colorHover;
+      border-color: $colorHover;
     }
   }
+
 
 
   &--hover-disabled {
@@ -226,11 +227,6 @@ _:-ms-fullscreen,
   }
 }
 
-// @media (max-width: 1200px) {
-//   .product {
-//     margin: 10px 20px;
-//   }
-// }
 @media (max-width: 576px) {
   .product {
     margin: 10px 0;
