@@ -10,8 +10,8 @@ class App extends Component {
       error: null,
       isLoaded: false,
       products: [],
-      // dataUrl: "https://preview.khaztech.com/zzz/datatest.php",
-      dataUrl: "./data/data.json",
+      dataUrl: "https://preview.khaztech.com/zzz/datatest.php",
+      // dataUrl: "./data/data.json",
       em: null
     };
 
