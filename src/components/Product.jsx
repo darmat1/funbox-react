@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import './Product.scss';
+import '../styles/Product.scss';
+
+
 class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isSelected: false,
       isFirstHover: false,
+      isSelectedHover: false
     }
     this.clickOnProduct = this.clickOnProduct.bind(this);
   }
@@ -13,10 +16,10 @@ class Product extends Component {
   clickOnProduct = () => {
     if (this.props.isAvailable) {
       if (!this.state.isSelected) {
-        this.setState({ 
+        this.setState({
           isSelected: true,
           isFirstHover: true
-         });
+        });
       } else {
         this.setState({ isSelected: !this.state.isSelected });
       }
@@ -29,30 +32,43 @@ class Product extends Component {
 
   clickOnLink = () => {
     if (this.props.isAvailable && !this.state.isSelected) {
-        this.setState({ isSelected: true });
+      this.setState({ isSelected: true });
     }
   }
 
   mouseLeave = () => {
     if (this.state.isSelected) {
-      this.setState({ isFirstHover: false });
+      this.setState({
+        isFirstHover: false,
+        isSelectedHover: false
+      });
+    }
+  }
+
+  mouseOver = () => {
+    if (this.state.isSelected) {
+      this.setState({ isSelectedHover: true });
     }
   }
 
   render() {
-    let productBottomBlock;
+    let productBottomBlock, topPromo;
+    topPromo = <div className="product__top-promo">{this.props.topPromo.text}</div>
     if (this.props.isAvailable) {
       if (!this.state.isSelected) {
         productBottomBlock = <div className="product__bottom-promo">
-        {this.props.bottomPromo.text} <a onClick={this.clickOnLink}>{this.props.bottomPromo.linkAnchor}</a>
+          {this.props.bottomPromo.text} <a onClick={this.clickOnLink}>{this.props.bottomPromo.linkAnchor}</a>
         </div>;
       } else {
         productBottomBlock = <div className="product__bottom-promo">{this.props.bottomPromo.textSelected}</div>
+
+        if (this.state.isSelectedHover && !this.state.isFirstHover) {
+          topPromo = <div className="product__top-promo">{this.props.topPromo.hoverSelected}</div>
+        }
       }
     } else {
       productBottomBlock = <div className="product__bottom-promo">{this.props.bottomPromo.textDisabled}</div>;
     }
-
     return (
       <div
         className={`product` +
@@ -60,9 +76,9 @@ class Product extends Component {
           `${this.state.isSelected === true ? ' product--selected' : ''}` +
           `${this.state.isFirstHover ? ' product--hover-disabled' : ''}`
         }>
-        <div className="product__card" onClick={this.clickOnProduct} onMouseLeave={this.mouseLeave}>
+        <div className="product__card" onClick={this.clickOnProduct} onMouseOver={this.mouseOver} onMouseLeave={this.mouseLeave}>
           <div className="product__inner">
-            <div className="product__top-promo">{this.props.topPromo}</div>
+            {topPromo}
             <h2 className="product__name">{this.props.name}</h2>
             <div className="product__classification">{this.props.classification}</div>
             <div className="product__description" dangerouslySetInnerHTML={{ __html: this.props.description }}></div>

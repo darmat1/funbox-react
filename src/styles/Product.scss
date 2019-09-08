@@ -139,6 +139,10 @@
         .product__weight {
           background-color: $colorDefault;
         }
+
+        .product__top-promo {
+          color: $colorText !important;
+        }
       }
     }
   }
@@ -156,6 +160,10 @@
 
         .product__weight {
           background-color: $colorSelectedHover;
+        }
+
+        .product__top-promo {
+          color: $colorSelectedHover;
         }
       }
     }
