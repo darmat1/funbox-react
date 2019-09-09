@@ -9,8 +9,8 @@
     },
     "description": "<strong>10</strong> порций <br> мышь в подарок",
     "bottomPromo": {
-      "link": "#",
-      "linkAnchor": "купи",
+      "linkURL": "#",
+      "linkText": "купи",
       "text": "Чего сидишь? порадуй котэ,",
       "textSelected": "Печень утки разварная с артишоками.",
       "textDisabled": "Печалька, с фуа-гра закончился."
@@ -29,8 +29,8 @@
       "hoverSelected": "Котэ не одобряет?" 
     },
     "bottomPromo": {
-      "link": "#",
-      "linkAnchor": "купи",
+      "linkURL": "#",
+      "linkText": "купи",
       "text": "Чего сидишь? порадуй котэ, ",
       "textSelected": "Головы щучьи с чесноком да свежайшая сёмгушка.",
       "textDisabled": "Печалька, с рыбой закончился."
@@ -49,8 +49,8 @@
       "hoverSelected": "Котэ не одобряет?" 
     },
     "bottomPromo": {
-      "link": "#",
-      "linkAnchor": "купи",
+      "linkURL": "#",
+      "linkText": "купи",
       "text": "Чего сидишь? порадуй котэ, ",
       "textSelected": "Филе из цыплят с трюфелями в бульоне.",
       "textDisabled": "Печалька, с курой закончился."

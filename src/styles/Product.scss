@@ -1,4 +1,6 @@
-@import "../index.scss";
+@import "../styles/variables.scss";
+@import "../styles/fonts.scss";
+@import "../styles/mixins.scss";
 
 .product {
   margin: 10px 40px;
@@ -111,20 +113,20 @@
     font-size: 13px;
     line-height: 15px;
     margin-top: 15px;
+  }
 
-    a {
-      text-decoration: none;
-      color: $colorDefault;
-      border-bottom: 1px dashed $colorDefault;
-      font-weight: bold;
+  &__bottom-link {
+    text-decoration: none;
+    color: $colorDefault;
+    border-bottom: 1px dashed $colorDefault;
+    font-weight: bold;
 
-      @include transition();
+    @include transition();
 
-      &:hover {
-        cursor: pointer;
-        color: $colorHover;
-        border-color: $colorHover;
-      }
+    &:hover {
+      cursor: pointer;
+      color: $colorHover;
+      border-color: $colorHover;
     }
   }
 
@@ -205,42 +207,53 @@
       }
     }
 
-    .product__weight {
-      background-color: $colorDisabled;
+    .product__name,
+    .product__classification,
+    .product__top-promo,
+    .product__description {
+      color: $colorDisabled;
     }
 
-    .product__bottom-promo {
-      color: $colorDisabledPromo;
-    }
+      .product__weight {
+        background-color: $colorDisabled;
+      }
 
-    .product__inner {
-      &::after {
-        opacity: 0.5;
+      .product__bottom-promo {
+        color: $colorDisabledPromo;
+      }
+
+      .product__inner {
+        &::after {
+          opacity: 0.5;
+        }
       }
     }
   }
-}
 
-_:-ms-fullscreen,
-:root {
-  .product-list {
-    display: block;
-    text-align: center;
-    width: 100%;
+  _:-ms-fullscreen,
+  :root {
+    .product-list {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+
+    .product {
+      display: inline-block;
+    }
   }
 
-  .product {
-    display: inline-block;
+  // @media (max-width: 1200px) {
+  //   .product {
+  //     margin: 10px 20px;
+  //   }
+  // }
+  @media (max-width: 576px) {
+    .product {
+      margin: 10px 0;
+    }
   }
-}
 
-// @media (max-width: 1200px) {
-//   .product {
-//     margin: 10px 20px;
-//   }
-// }
-@media (max-width: 576px) {
-  .product {
-    margin: 10px 0;
+  .pa {
+    position: absolute;
   }
-}

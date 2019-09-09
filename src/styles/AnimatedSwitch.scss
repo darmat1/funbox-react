@@ -1,0 +1,9 @@
+.animated-switch{
+  position: relative;
+  min-height: 19px;
+
+  &__item{
+    position: absolute;
+    width: 100%;
+  }
+}

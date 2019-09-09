@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import '../styles/animated.css';
 import '../styles/Product.scss';
-import Top from "./Top";
+import AnimatedSwitch from "./AnimatedSwitch";
 
 
 class Product extends Component {
@@ -11,7 +12,6 @@ class Product extends Component {
       isFirstHover: false,
       isSelectedHover: false
     }
-    this.clickOnProduct = this.clickOnProduct.bind(this);
   }
 
   clickOnProduct = () => {
@@ -22,7 +22,10 @@ class Product extends Component {
           isFirstHover: true
         });
       } else {
-        this.setState({ isSelected: !this.state.isSelected });
+        this.setState({
+          isSelected: !this.state.isSelected,
+          isSelectedHover: false
+        });
       }
 
       if (this.state.isFirstHover && this.state.isSelected) {
@@ -47,7 +50,7 @@ class Product extends Component {
   }
 
   mouseOver = () => {
-    if (this.state.isSelected) {
+    if (this.state.isSelected && !this.state.isFirstHover) {
       this.setState({ isSelectedHover: true });
     }
   }
@@ -56,19 +59,12 @@ class Product extends Component {
     let productBottomBlock;
 
     if (this.props.isAvailable) {
-      if (!this.state.isSelected) {
-
-        productBottomBlock = <div className="product__bottom-promo">
-          {this.props.bottomPromo.text} 
-          <span onClick={this.clickOnLink}>{this.props.bottomPromo.linkAnchor}</span>
-        </div>;
-
-      } else {
-        productBottomBlock = <div className="product__bottom-promo">{this.props.bottomPromo.textSelected}</div>
-      }
-      
+        productBottomBlock = <span>{this.props.bottomPromo.text} <span className="product__bottom-link" onClick={this.clickOnLink}>
+            {this.props.bottomPromo.linkText}
+          </span>
+        </span>;
     } else {
-      productBottomBlock = <div className="product__bottom-promo">{this.props.bottomPromo.textDisabled}</div>;
+      productBottomBlock = this.props.bottomPromo.textDisabled;
     }
 
     return (
@@ -80,7 +76,11 @@ class Product extends Component {
         }>
         <div className="product__card" onClick={this.clickOnProduct} onMouseOver={this.mouseOver} onMouseLeave={this.mouseLeave}>
           <div className="product__inner">
-            <Top text={this.props.topPromo.text} hoverText={this.props.topPromo.hoverSelected} hoverActive={this.state.isSelectedHover}></Top>
+            <AnimatedSwitch
+              cssClass="product__top-promo"
+              default={this.props.topPromo.text}
+              switched={this.props.topPromo.hoverSelected}
+              isSwitched={this.state.isSelectedHover}></AnimatedSwitch>
             <h2 className="product__name">{this.props.name}</h2>
             <div className="product__classification">{this.props.classification}</div>
             <div className="product__description" dangerouslySetInnerHTML={{ __html: this.props.description }}></div>
@@ -90,7 +90,12 @@ class Product extends Component {
             </div>
           </div>
         </div>
-        {productBottomBlock}
+        <AnimatedSwitch
+          cssClass="product__bottom-promo"
+          default={productBottomBlock}
+          switched={this.props.bottomPromo.textSelected}
+          isSwitched={this.state.isSelected}>
+        </AnimatedSwitch>
       </div>
     );
   }
