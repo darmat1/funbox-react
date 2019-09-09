@@ -3,11 +3,14 @@
     "id": 1,
     "name": "Нямушка",
     "classification": "c фуа-гра",
-    "topPromo": "Сказочное заморское яство",
+    "topPromo": {
+      "text": "Сказочное заморское яство",
+      "hoverSelected": "Котэ не одобряет?" 
+    },
     "description": "<strong>10</strong> порций <br> мышь в подарок",
     "bottomPromo": {
-      "link": "#",
-      "linkAnchor": "купи",
+      "linkURL": "#",
+      "linkText": "купи",
       "text": "Чего сидишь? порадуй котэ,",
       "textSelected": "Печень утки разварная с артишоками.",
       "textDisabled": "Печалька, с фуа-гра закончился."
@@ -21,10 +24,13 @@
     "name": "Нямушка",
     "classification": "c рыбой",
     "description": "<strong>40</strong> порций <br><strong>2</strong> мыши в подарок",
-    "topPromo": "Сказочное заморское яство",
+    "topPromo": {
+      "text": "Сказочное заморское яство",
+      "hoverSelected": "Котэ не одобряет?" 
+    },
     "bottomPromo": {
-      "link": "#",
-      "linkAnchor": "купи",
+      "linkURL": "#",
+      "linkText": "купи",
       "text": "Чего сидишь? порадуй котэ, ",
       "textSelected": "Головы щучьи с чесноком да свежайшая сёмгушка.",
       "textDisabled": "Печалька, с рыбой закончился."
@@ -38,10 +44,13 @@
     "name": "Нямушка",
     "classification": "c курой",
     "description": "<strong>100</strong> порций <br><strong>5</strong> мышей в подарок <br>заказчик доволен",
-    "topPromo": "Сказочное заморское яство",
+    "topPromo": {
+      "text": "Сказочное заморское яство",
+      "hoverSelected": "Котэ не одобряет?" 
+    },
     "bottomPromo": {
-      "link": "#",
-      "linkAnchor": "купи",
+      "linkURL": "#",
+      "linkText": "купи",
       "text": "Чего сидишь? порадуй котэ, ",
       "textSelected": "Филе из цыплят с трюфелями в бульоне.",
       "textDisabled": "Печалька, с курой закончился."
