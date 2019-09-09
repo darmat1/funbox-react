@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import '../styles/Product.scss';
+import Top from "./Top";
 
 
 class Product extends Component {
@@ -52,23 +53,24 @@ class Product extends Component {
   }
 
   render() {
-    let productBottomBlock, topPromo;
-    topPromo = <div className="product__top-promo">{this.props.topPromo.text}</div>
+    let productBottomBlock;
+
     if (this.props.isAvailable) {
       if (!this.state.isSelected) {
+
         productBottomBlock = <div className="product__bottom-promo">
-          {this.props.bottomPromo.text} <a onClick={this.clickOnLink}>{this.props.bottomPromo.linkAnchor}</a>
+          {this.props.bottomPromo.text} 
+          <span onClick={this.clickOnLink}>{this.props.bottomPromo.linkAnchor}</span>
         </div>;
+
       } else {
         productBottomBlock = <div className="product__bottom-promo">{this.props.bottomPromo.textSelected}</div>
-
-        if (this.state.isSelectedHover && !this.state.isFirstHover) {
-          topPromo = <div className="product__top-promo">{this.props.topPromo.hoverSelected}</div>
-        }
       }
+      
     } else {
       productBottomBlock = <div className="product__bottom-promo">{this.props.bottomPromo.textDisabled}</div>;
     }
+
     return (
       <div
         className={`product` +
@@ -78,7 +80,7 @@ class Product extends Component {
         }>
         <div className="product__card" onClick={this.clickOnProduct} onMouseOver={this.mouseOver} onMouseLeave={this.mouseLeave}>
           <div className="product__inner">
-            {topPromo}
+            <Top text={this.props.topPromo.text} hoverText={this.props.topPromo.hoverSelected} hoverActive={this.state.isSelectedHover}></Top>
             <h2 className="product__name">{this.props.name}</h2>
             <div className="product__classification">{this.props.classification}</div>
             <div className="product__description" dangerouslySetInnerHTML={{ __html: this.props.description }}></div>
