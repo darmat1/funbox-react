@@ -59,9 +59,9 @@ class Product extends Component {
     let productBottomBlock;
 
     if (this.props.isAvailable) {
-        productBottomBlock = <span>{this.props.bottomPromo.text} <span className="product__bottom-link" onClick={this.clickOnLink}>
+        productBottomBlock = <span>{this.props.bottomPromo.text} <button className="product__bottom-link" onClick={this.clickOnLink}>
             {this.props.bottomPromo.linkText}
-          </span>
+          </button>
         </span>;
     } else {
       productBottomBlock = this.props.bottomPromo.textDisabled;

@@ -120,6 +120,11 @@
     color: $colorDefault;
     border-bottom: 1px dashed $colorDefault;
     font-weight: bold;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 0;
 
     @include transition();
 
@@ -127,6 +132,10 @@
       cursor: pointer;
       color: $colorHover;
       border-color: $colorHover;
+    }
+
+    &:focus{
+      outline: none;
     }
   }
 
